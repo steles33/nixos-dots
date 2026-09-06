@@ -74,6 +74,7 @@
      fastfetch
      htop
      tldr
+     mc
   ];
 
   # Enable the OpenSSH daemon.
