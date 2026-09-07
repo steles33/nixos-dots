@@ -57,6 +57,8 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  programs.fish.enable = true;
+
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
      vim
@@ -66,7 +68,6 @@
      htop
      tldr
      mc
-     fish
   ];
 
   # Enable the OpenSSH daemon.
