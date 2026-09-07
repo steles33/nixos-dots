@@ -14,10 +14,9 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "m920q";
-
-  # Enable networking
+  #Enable networking
   networking.networkmanager.enable = true;
+  networking.hostName = "m920q";
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -50,7 +49,7 @@
   users.users."steles33" = {
     isNormalUser = true;
     description = "steles33";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "input" ];
     packages = with pkgs; [];
   };
 
@@ -69,10 +68,37 @@
      htop
      tldr
      mc
+     wl-clipboard
+     mako
+     kdePackages.konsole
+  ];
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+    extraPackages = with pkgs; [
+      foot
+      dmenu
+      grim
+      slurp
+      flameshot
+  ];
+  };
+
+  programs.waybar.enable = true;
+  programs.firefox.enable = true;
+
+  #Fonts
+  fonts.packages = with pkgs; [
+    font-awesome_4
+    font-awesome
+    noto-fonts
+    roboto
   ];
 
-  # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  services.xserver.enable = true;
+  security.polkit.enable = true;
 
   system.stateVersion = "26.05";
 
