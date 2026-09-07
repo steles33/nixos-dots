@@ -58,6 +58,7 @@
   nixpkgs.config.allowUnfree = true;
 
   programs.fish.enable = true;
+  users.users.steles33.shell = pkgs.fish;
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
