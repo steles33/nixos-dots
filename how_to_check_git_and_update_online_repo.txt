@@ -2,6 +2,6 @@ How to check git and update online repo:
  - cd ~/nixos-dots
  - git status
  - git add .
- - git commit "Update"
+ - git commit -m "Update"
  - git push
  - git status
