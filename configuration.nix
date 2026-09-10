@@ -52,6 +52,9 @@
      qt6Packages.qt6ct
      libsForQt5.qt5ct
      vlc
+     papirus-icon-theme
+     krusader
+     xfce4-appfinder
   ];
   programs.sway = {
     enable = true;
@@ -76,6 +79,6 @@
   services.gnome.gnome-keyring.enable = true;
   security.polkit.enable = true;
   environment.sessionVariables = { QT_QPA_PLATFORMTHEME = "qt5ct"; };
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "26.05";
-
 }
