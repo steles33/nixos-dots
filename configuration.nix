@@ -48,6 +48,9 @@
      fuzzel
      kdePackages.konsole
      kdePackages.kate
+     kdePackages.breeze-icons
+     qt6Packages.qt6ct
+     libsForQt5.qt5ct
      vlc
   ];
   programs.sway = {
@@ -72,6 +75,7 @@
   services.openssh.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.polkit.enable = true;
+  environment.sessionVariables = { QT_QPA_PLATFORMTHEME = "qt5ct"; };
   system.stateVersion = "26.05";
 
 }
