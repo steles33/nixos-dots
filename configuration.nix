@@ -56,17 +56,6 @@
      krusader
      xfce4-appfinder
   ];
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-    extraPackages = with pkgs; [
-      foot
-      dmenu
-      grim
-      slurp
-      flameshot
-    ];
-  };
   programs.waybar.enable = true;
   programs.firefox.enable = true;
   fonts.packages = with pkgs; [
