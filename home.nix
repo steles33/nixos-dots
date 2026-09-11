@@ -35,6 +35,7 @@
     # Sway utilities
     swaylock
     swayidle
+    swaybg
 
     # File manager / utilities
     file
@@ -67,6 +68,9 @@
       xkb_variant = "nodeadkeys";
       xkb_numlock = "enabled";
     };
+    #output."*" = {
+    #  bg = "~/Pictures/Sway_Wallpaper_Blue_1920x1080.png fill";
+    #};
 
       # -----------------------------------------------------
       # Appearance
@@ -245,7 +249,8 @@ keybindings = {
 
       startup = [
         {
-          command = "mako";
+          # command = "mako";
+          command = "swaybg -i ~/Pictures/Sway_Wallpaper_Blue_1920x1080.png -m fill";
           always = true;
         }
       ];
@@ -278,13 +283,13 @@ keybindings = {
         modules-left = [
           "sway/mode"
           "network"
-          "sway/workspaces"
         ];
 
         modules-center = [
           "sway/workspaces"
           "wlr/taskbar"
           "clock"
+          "mpd"
         ];
 
         modules-right = [
@@ -297,14 +302,18 @@ keybindings = {
         ];
 
         "clock" = {
-          format = "{:%a %d.%m. %H:%M}";
+          format = "{:%a %d.%m. %H:%M:%S}";
           tooltip-format = "{:%A, %d %B %Y}";
         };
 
         "network" = {
-          format-wifi = "  {essid}";
-          format-ethernet = "󰈀  {ipaddr}";
+          interval = 1;
+          format-wifi = "{signalStrength}%   |  {bandwidthDownBits}   |  {bandwidthUpBits} ";
+          format-ethernet = " LAN  |  {bandwidthDownBits}   |  {bandwidthUpBits} ";
+          tooltip-format = "{essid} via {gwaddr} ";
+          format-linked = "{ifname} (No IP) ";
           format-disconnected = "󰖪";
+          format-alt = "{ifname}: {ipaddr}/{cidr}";
         };
 
         "pulseaudio" = {
