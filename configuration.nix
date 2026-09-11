@@ -11,9 +11,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
 
   # ---------------------------------------------------------
   # Networking
@@ -22,15 +20,12 @@
   networking.networkmanager.enable = true;
   networking.hostName = "m920q";
 
-
   # ---------------------------------------------------------
   # Locale / Time
   # ---------------------------------------------------------
 
   time.timeZone = "Europe/Berlin";
-
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
     LC_IDENTIFICATION = "de_DE.UTF-8";
@@ -45,16 +40,13 @@
 
   console.keyMap = "de-latin1-nodeadkeys";
 
-
   # ---------------------------------------------------------
   # User
   # ---------------------------------------------------------
 
   users.users.steles33 = {
     isNormalUser = true;
-
     description = "steles33";
-
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -65,13 +57,11 @@
     shell = pkgs.fish;
   };
 
-
   # ---------------------------------------------------------
   # Shell
   # ---------------------------------------------------------
 
   programs.fish.enable = true;
-
 
   # ---------------------------------------------------------
   # Sway / Wayland
@@ -83,22 +73,18 @@
   # Needed for some Wayland applications.
   xdg.portal = {
     enable = true;
-
     extraPortals = with pkgs; [
       xdg-desktop-portal-wlr
       xdg-desktop-portal-gtk
     ];
   };
 
-
   # ---------------------------------------------------------
   # Polkit / Keyring
   # ---------------------------------------------------------
 
   security.polkit.enable = true;
-
   services.gnome.gnome-keyring.enable = true;
-
 
   # ---------------------------------------------------------
   # SSH
@@ -106,19 +92,27 @@
 
   services.openssh.enable = true;
 
-
   # ---------------------------------------------------------
   # Audio
   # ---------------------------------------------------------
 
   services.pipewire = {
     enable = true;
-
     pulse.enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
   };
 
+  services.displayManager.sddm = {
+  enable = true;
+
+  wayland = {
+    enable = true;
+
+    # default compositor is "weston", you can optionally change it to kwin
+    #compositor = "kwin";
+    };
+  };
 
   # ---------------------------------------------------------
   # System packages
@@ -158,8 +152,10 @@
 
     # XFCE utility
     xfce4-appfinder
+    keepassxc
   ];
-
+  # Makes icons and themes available through the standard XDG paths
+  xdg.icons.enable = true;
 
   # ---------------------------------------------------------
   # Fonts
@@ -167,10 +163,10 @@
 
   fonts.packages = with pkgs; [
     font-awesome
+    font-awesome_4
     noto-fonts
     roboto
   ];
-
 
   # ---------------------------------------------------------
   # Qt
@@ -179,7 +175,6 @@
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "qt5ct";
   };
-
 
   # ---------------------------------------------------------
   # Nix
@@ -191,7 +186,6 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
-
 
   # ---------------------------------------------------------
   # System state version

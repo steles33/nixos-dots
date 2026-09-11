@@ -7,9 +7,7 @@
 
   home.username = "steles33";
   home.homeDirectory = "/home/steles33";
-
   home.stateVersion = "26.05";
-
 
   # ---------------------------------------------------------
   # Packages
@@ -17,7 +15,7 @@
 
   home.packages = with pkgs; [
     # Terminal
-    foot
+    kdePackages.konsole
 
     # Launcher
     fuzzel
@@ -32,6 +30,7 @@
 
     # Notifications
     mako
+    swaynotificationcenter
 
     # Sway utilities
     swaylock
@@ -41,7 +40,6 @@
     file
     tree
   ];
-
 
   # ---------------------------------------------------------
   # Sway
@@ -60,18 +58,22 @@
       # -----------------------------------------------------
 
       modifier = "Mod4";
-
-      terminal = "foot";
-
+      terminal = "konsole";
       menu = "fuzzel";
+      # menu = "wofi --show drun --columns 3";
 
+    input."*" = {
+      xkb_layout = "de";
+      xkb_variant = "nodeadkeys";
+      xkb_numlock = "enabled";
+    };
 
       # -----------------------------------------------------
       # Appearance
       # -----------------------------------------------------
 
       gaps = {
-        inner = 6;
+        inner = 5;
         outer = 4;
       };
 
@@ -125,7 +127,7 @@ keybindings = {
   # -------------------------------------------------------
 
   # Terminal
-  "Mod4+Return" = "exec foot";
+  "Mod4+Return" = "exec konsole";
 
   # Application launcher
   "Mod4+d" = "exec fuzzel";
@@ -136,7 +138,7 @@ keybindings = {
   # -------------------------------------------------------
 
   # Close window
-  "Mod4+q" = "kill";
+  "Mod4+Shift+q" = "kill";
 
   # Fullscreen
   "Mod4+f" = "fullscreen toggle";
@@ -237,23 +239,16 @@ keybindings = {
     "exec grim ~/Pictures/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png";
 };
 
-
       # -----------------------------------------------------
       # Startup applications
       # -----------------------------------------------------
 
       startup = [
         {
-          command = "waybar";
-          always = true;
-        }
-
-        {
           command = "mako";
           always = true;
         }
       ];
-
 
       # -----------------------------------------------------
       # Environment
@@ -266,7 +261,6 @@ keybindings = {
       ];
     };
   };
-
 
   # ---------------------------------------------------------
   # Waybar
@@ -282,18 +276,24 @@ keybindings = {
         height = 32;
 
         modules-left = [
+          "sway/mode"
+          "network"
           "sway/workspaces"
         ];
 
         modules-center = [
-          "sway/window"
+          "sway/workspaces"
+          "wlr/taskbar"
+          "clock"
         ];
 
         modules-right = [
           "pulseaudio"
-          "network"
+          "cpu"
+          "memory"
+          "disk"
           "battery"
-          "clock"
+          "tray"
         ];
 
         "clock" = {
@@ -336,8 +336,8 @@ keybindings = {
 
     style = ''
       * {
-        font-family: "Roboto", "Font Awesome 6 Free";
-        font-size: 14px;
+        font-family: "Roboto", "Font Awesome";
+        font-size: 20px;
       }
 
       window#waybar {
@@ -366,6 +366,29 @@ keybindings = {
     '';
   };
 
+  programs.fuzzel = {
+    enable = true;
+    settings = {
+      main = {
+        font = "Roboto:size=18";
+        lines = 15;
+        auto-select = true;
+      };
+      colors = {
+        background = "14161Be5";
+        text = "F5F5F5FF";
+        selection-match = "A2D6F9ff";
+        match = "A2D6F9ff";
+        selection = "4F5258ff";
+        selection-text = "F5F5F5FF";
+        border = "A1A1A1FF";
+      };
+      border = {
+        radius = 5;
+        width = 4;
+      };
+    };
+  };
 
   # ---------------------------------------------------------
   # Mako notifications
