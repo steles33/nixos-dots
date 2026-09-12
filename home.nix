@@ -30,7 +30,6 @@
     flameshot
 
     # Notifications
-    mako
     swaynotificationcenter
 
     # Sway utilities
@@ -155,6 +154,10 @@ keybindings = {
   # -------------------------------------------------------
   # -> Using swappy
   "Mod4+p" = "exec grim -g \"$(slurp)\" - | swappy -f -";
+  # -------------------------------------------------------
+  # Notifications
+  # -------------------------------------------------------
+  "Mod4+Shift+n"= "exec swaync-client -t -sw";
 
   "Mod4+f" = "fullscreen toggle";
   "Mod4+Shift+space" = "floating toggle";
@@ -230,7 +233,6 @@ keybindings = {
 
       startup = [
         {
-          # command = "mako";
           command = "swaybg -i ~/Pictures/Sway_Wallpaper_Blue_1920x1080.png -m fill";
           always = true;
         }
@@ -402,27 +404,34 @@ keybindings = {
   };
 
   # ---------------------------------------------------------
-  # Mako notifications
+  # SwayNotificationCenter - swaync notifications
   # ---------------------------------------------------------
 
-  services.mako = {
+  services.swaync = {
     enable = true;
 
+    # Custom CSS for the notification center
+    style = ''
+      .notification-row {
+        outline: none;
+      }
+      .notification {
+        border-radius: 12px;
+        margin: 6px 12px;
+        padding: 0;
+      }
+    '';
+
+    # JSON configuration for layout and behavior
     settings = {
-      background-color = "#1e1e2e";
-      text-color = "#cdd6f4";
-      border-color = "#89b4fa";
-
-      border-size = 2;
-      border-radius = 8;
-
-      default-timeout = 5000;
-
-      width = 400;
-      height = 150;
-
-      margin = 10;
-      padding = 15;
+      positionX = "right";
+      positionY = "top";
+      layer = "overlay";
+      control-center-layer = "top";
+      layer-shell = true;
+      cssPriority = "application";
+      notification-icon-size = 64;
+      notification-inline-replies = false;
     };
   };
 
