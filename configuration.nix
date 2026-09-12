@@ -135,11 +135,15 @@
 
     # Applications
     firefox
-    vlc
+    thunderbird
+    signal-desktop
     krusader
+    vlc
 
     # KDE/Qt applications
     kdePackages.konsole
+    kdePackages.dolphin
+    kdePackages.elisa
     kdePackages.kate
     kdePackages.breeze-icons
 

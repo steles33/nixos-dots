@@ -38,6 +38,7 @@
     swaybg
 
     # File manager / utilities
+    mc
     file
     tree
   ];
@@ -127,49 +128,40 @@
 
 keybindings = {
   # -------------------------------------------------------
-  # Applications
-  # -------------------------------------------------------
-
   # Terminal
-  "Mod4+Return" = "exec konsole";
-
-  # Application launcher
-  "Mod4+d" = "exec fuzzel";
-
-
   # -------------------------------------------------------
-  # Window management
+  "Mod4+Return" = "exec konsole --profile nixos";
   # -------------------------------------------------------
-
-  # Close window
+  # Kill
+  # -------------------------------------------------------
   "Mod4+Shift+q" = "kill";
+  # -------------------------------------------------------
+  # Launcher
+  # -------------------------------------------------------
+  "Mod4+d" = "exec fuzzel";
+  "Mod4+Shift+d" = "xfce4-appfinder";
+  # -------------------------------------------------------
+  # Apps
+  # -------------------------------------------------------
+  "Mod4+i" = "exec firefox";
+  "Mod4+c" = "exec thunderbird";
+  "Mod4+n" = "exec signal-desktop";
+  "Mod4+o" = "exec dolphin";
+  "Mod4+k" = "exec krusader";
+  "Mod4+e" = "exec elisa";
+  # -------------------------------------------------------
+  # Screenshots
+  # -------------------------------------------------------
+  #   Using swappy
+  "Mod4+p" = "exec grim -g \"$(slurp)\" - | swappy -f -";
 
-  # Fullscreen
   "Mod4+f" = "fullscreen toggle";
-
-  # Floating
   "Mod4+Shift+space" = "floating toggle";
-
-  # Toggle focus between tiling/floating
   "Mod4+space" = "focus mode_toggle";
-
-
-  # -------------------------------------------------------
-  # Sway
-  # -------------------------------------------------------
-
-  # Reload configuration
   "Mod4+Shift+c" = "reload";
-
-  # Restart Sway
   "Mod4+Shift+r" = "restart";
-
-  # Lock screen
   "Mod4+l" = "exec swaylock -f -c 1e1e2e";
-
-  # Exit Sway
-  "Mod4+Shift+e" =
-    "exec swaynag -t warning -m 'Exit Sway?' -B 'Yes' 'swaymsg exit'";
+  "Mod4+Shift+e" = "exec swaynag -t warning -m 'Exit Sway?' -B 'Yes' 'swaymsg exit'";
 
 
   # -------------------------------------------------------
@@ -196,7 +188,7 @@ keybindings = {
   # Splitting
   # -------------------------------------------------------
 
-  "Mod4+b" = "splith";
+  "Mod4+h" = "splith";
   "Mod4+v" = "splitv";
 
 
@@ -229,18 +221,6 @@ keybindings = {
   "Mod4+Shift+8" = "move container to workspace number 8";
   "Mod4+Shift+9" = "move container to workspace number 9";
 
-
-  # -------------------------------------------------------
-  # Screenshots
-  # -------------------------------------------------------
-
-  # Select an area
-  "Print" =
-    "exec grim -g \"$(slurp)\" ~/Pictures/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png";
-
-  # Full screen
-  "Shift+Print" =
-    "exec grim ~/Pictures/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png";
 };
 
       # -----------------------------------------------------
