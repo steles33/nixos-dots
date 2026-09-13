@@ -289,6 +289,11 @@ keybindings = {
           tooltip-format = "{:%A, %d %B %Y}";
         };
 
+        "memory" = {
+          interval = 30;
+          format = "{}% mem";
+        };
+
         "network" = {
           interval = 1;
           format-wifi = "{signalStrength}%   |  {bandwidthDownBits}   |  {bandwidthUpBits} ";

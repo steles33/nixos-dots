@@ -121,6 +121,8 @@
   environment.systemPackages = with pkgs; [
     # Basic tools
     vim
+    neovim
+    emacs
     wget
     git
     fastfetch
