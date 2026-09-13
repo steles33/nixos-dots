@@ -143,6 +143,10 @@
     # KDE/Qt applications
     kdePackages.konsole
     kdePackages.dolphin
+    kdePackages.qtsvg
+    kdePackages.kio
+    kdePackages.kio-fuse
+    kdePackages.kio-extras
     kdePackages.elisa
     kdePackages.kate
     kdePackages.breeze-icons
