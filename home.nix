@@ -37,10 +37,11 @@
     swayidle
     swaybg
 
-    # File manager / utilities
+    # File manager / Tray utilities
     mc
     file
     tree
+    networkmanagerapplet
   ];
 
   # ---------------------------------------------------------
@@ -62,17 +63,12 @@
       modifier = "Mod4";
       terminal = "konsole";
       menu = "fuzzel";
-      # menu = "wofi --show drun --columns 3";
 
     input."*" = {
       xkb_layout = "de";
       xkb_variant = "nodeadkeys";
       xkb_numlock = "enabled";
     };
-    #output."*" = {
-    #  bg = "~/Pictures/Sway_Wallpaper_Blue_1920x1080.png fill";
-    #};
-
       # -----------------------------------------------------
       # Appearance
       # -----------------------------------------------------
@@ -80,11 +76,12 @@
       gaps = {
         inner = 5;
         outer = 4;
+        smartGaps = true;
       };
 
       window = {
-        border = 2;
-        titlebar = false;
+        border = 8;
+        titlebar = true;
       };
 
       floating = {
@@ -248,6 +245,7 @@ keybindings = {
         }
       ];
     };
+    extraConfig = "font pango:monospace 16";
   };
 
   # ---------------------------------------------------------
@@ -285,13 +283,24 @@ keybindings = {
         ];
 
         "clock" = {
-          format = "{:%a %d.%m. %H:%M:%S}";
+          interval = 1;
+          format = "{:%a %d.%m.%y %H:%M:%S}";
           tooltip-format = "{:%A, %d %B %Y}";
+        };
+
+        "cpu" = {
+          format = "CPU:{usage}%  ";
+          tooltip = false;
         };
 
         "memory" = {
           interval = 30;
-          format = "{}% mem";
+          format = "MEM:{}%  ";
+        };
+
+        "disk" = {
+          interval = 30;
+          format = "DISK:{percentage_used}%  ";
         };
 
         "network" = {
@@ -307,7 +316,6 @@ keybindings = {
         "pulseaudio" = {
           format = "{icon} {volume}%";
           format-muted = "󰖁 muted";
-
           format-icons = {
             default = [
               ""
@@ -318,8 +326,7 @@ keybindings = {
         };
 
         "battery" = {
-          format = "{capacity}% {icon}";
-
+          format = "{icon} {capacity}%";
           format-icons = [
             ""
             ""
@@ -333,8 +340,8 @@ keybindings = {
 
     style = ''
       * {
-        font-family: "Roboto", "Font Awesome";
-        font-size: 20px;
+        font-family: "Roboto", "FontAwesome";
+        font-size: 22px;
       }
 
       window#waybar {
@@ -471,4 +478,20 @@ keybindings = {
 
     createDirectories = true;
   };
+
+  systemd.user.services.nm-applet = {
+  Unit = {
+    Description = "Network Manager Applet";
+    After = [ "graphical-session-pre.target" ];
+  };
+  Service = {
+    ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet";
+    Restart = "on-failure";
+  };
+  Install = {
+    WantedBy = [ "graphical-session.target" ];
+  };
+};
+
+
 }
