@@ -174,6 +174,8 @@ keybindings = {
   "Mod4+Up" = "focus up";
   "Mod4+Right" = "focus right";
 
+  # "Mod4+r" =
+
 
   # -------------------------------------------------------
   # Move windows
@@ -233,6 +235,10 @@ keybindings = {
           command = "swaybg -i ~/Pictures/Sway_Wallpaper_Blue_1920x1080.png -m fill";
           always = true;
         }
+        {
+          command = "blueman-applet";
+          always = true;
+        }
       ];
 
       # -----------------------------------------------------
@@ -275,6 +281,7 @@ keybindings = {
 
         modules-right = [
           "pulseaudio"
+          # "bluetooth" # since there is no bluetooth hardware on my thinkcentre m920q
           "cpu"
           "memory"
           "disk"
