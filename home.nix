@@ -276,27 +276,9 @@ keybindings = {
         position = "top";
         height = 32;
 
-        modules-left = [
-          "sway/mode"
-          "network"
-        ];
-
-        modules-center = [
-          "sway/workspaces"
-          "wlr/taskbar"
-          "clock"
-          "mpd"
-        ];
-
-        modules-right = [
-          "pulseaudio"
-          "bluetooth"
-          "cpu"
-          "memory"
-          "disk"
-          "battery"
-          "tray"
-        ];
+        modules-left = [ "sway/mode" "network" ];
+        modules-center = [ "sway/workspaces" "wlr/taskbar" "clock" "mpd" ];
+        modules-right = [ "pulseaudio" "bluetooth" "cpu" "memory" "disk" "battery" "tray" ];
 
         "clock" = {
           interval = 1;
