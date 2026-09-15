@@ -165,6 +165,7 @@
     xfce4-appfinder
     keepassxc
     usbutils
+    usb-modeswitch
   ];
   # Makes icons and themes available through the standard XDG paths
   xdg.icons.enable = true;
