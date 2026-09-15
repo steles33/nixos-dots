@@ -161,9 +161,10 @@
     # GTK / icons
     papirus-icon-theme
 
-    # XFCE utility
+    # XFCE utilities and others
     xfce4-appfinder
     keepassxc
+    usbutils
   ];
   # Makes icons and themes available through the standard XDG paths
   xdg.icons.enable = true;
