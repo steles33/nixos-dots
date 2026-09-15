@@ -290,7 +290,7 @@ keybindings = {
 
         modules-right = [
           "pulseaudio"
-          # "bluetooth" # since there is no bluetooth hardware on my thinkcentre m920q
+          "bluetooth"
           "cpu"
           "memory"
           "disk"
