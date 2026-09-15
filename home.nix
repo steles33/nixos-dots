@@ -64,6 +64,15 @@
       terminal = "konsole";
       menu = "fuzzel";
 
+    window.commands = [
+      {
+        criteria = {
+          app_id = "firefox";
+        };
+        command = "border none";
+      }
+    ];
+
     input."*" = {
       xkb_layout = "de";
       xkb_variant = "nodeadkeys";
@@ -145,7 +154,7 @@ keybindings = {
   "Mod4+n" = "exec signal-desktop";
   "Mod4+o" = "exec dolphin";
   "Mod4+k" = "exec krusader";
-  "Mod4+e" = "exec elisa";
+  "Mod4+m" = "exec elisa";
   # -------------------------------------------------------
   # Screenshots
   # -------------------------------------------------------
