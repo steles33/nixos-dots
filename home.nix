@@ -288,7 +288,7 @@ keybindings = {
         };
 
         "cpu" = {
-          format = "  CPU:{usage}%  ";
+          format = " CPU:{usage}%  ";
           tooltip = false;
         };
 
@@ -335,7 +335,7 @@ keybindings = {
 
     style = ''
       * {
-        font-family: "Roboto", "FontAwesome";
+        font-family: monospace, FontAwesome;
         font-size: 22px;
       }
 
