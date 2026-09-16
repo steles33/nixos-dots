@@ -288,7 +288,7 @@ keybindings = {
         };
 
         "cpu" = {
-          format = "CPU:{usage}%  ";
+          format = "  CPU:{usage}%  ";
           tooltip = false;
         };
 
