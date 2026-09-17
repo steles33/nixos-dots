@@ -288,24 +288,24 @@ keybindings = {
         };
 
         "cpu" = {
-          format = " CPU:{usage}%  ";
+          format = " cpu:{usage}%  ";
           tooltip = false;
         };
 
         "memory" = {
           interval = 30;
-          format = "MEM:{}%  ";
+          format = "mem:{}%  ";
         };
 
         "disk" = {
           interval = 30;
-          format = "DISK:{percentage_used}%  ";
+          format = "disk:{percentage_used}%  ";
         };
 
         "network" = {
           interval = 1;
           format-wifi = "{signalStrength}%   |  {bandwidthDownBits}   |  {bandwidthUpBits} ";
-          format-ethernet = " LAN  |  {bandwidthDownBits}   |  {bandwidthUpBits} ";
+          format-ethernet = " lan: {bandwidthDownBits}   {bandwidthUpBits} ";
           tooltip-format = "{essid} via {gwaddr} ";
           format-linked = "{ifname} (No IP) ";
           format-disconnected = "󰖪";
