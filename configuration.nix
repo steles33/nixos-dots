@@ -204,6 +204,12 @@
   nixpkgs.config.allowUnfree = true;
 
   # ---------------------------------------------------------
+  # Fix for Dolphins Open menu
+  # ---------------------------------------------------------
+
+  environment.etc."xdg/menus/applications.menu".source = "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
+
+  # ---------------------------------------------------------
   # System state version
   # ---------------------------------------------------------
 
