@@ -283,7 +283,7 @@ keybindings = {
 
         "clock" = {
           interval = 1;
-          format = "{ :%a %d.%m.%y  %H:%M:%S}";
+          format = "{: %a %d.%m.%y  %H:%M:%S}";
           tooltip-format = "{:%A, %d %B %Y}";
         };
 
