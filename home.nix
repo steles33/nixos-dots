@@ -450,6 +450,14 @@ keybindings = {
   gtk = {
     enable = true;
 
+    gtk3.extraConfig = {
+      "gtk-font-name" = "Noto Sans 18";
+    };
+
+    gtk4.extraConfig = {
+      "gtk-font-name" = "Noto Sans 18";
+    };
+
     theme = {
       name = "Adwaita-dark";
     };
@@ -459,7 +467,7 @@ keybindings = {
     };
 
     font = {
-      name = "Roboto 10";
+      name = "Noto Sans 10";
     };
   };
 
