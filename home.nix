@@ -334,9 +334,9 @@ keybindings = {
         "tray" = {
           icon-size = 18;
           spacing = 10;
+        };
       };
     };
-
 
     style = ''
       * {
@@ -499,5 +499,5 @@ keybindings = {
   Install = {
     WantedBy = [ "graphical-session.target" ];
   };
- };
-};
+}
+}
