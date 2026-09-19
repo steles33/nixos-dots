@@ -169,6 +169,10 @@
     usbutils
     usb-modeswitch
     nerd-fonts.symbols-only
+
+    # Security
+    gnome-keyring
+    libsecret
   ];
   # Makes icons and themes available through the standard XDG paths
   xdg.icons.enable = true;
