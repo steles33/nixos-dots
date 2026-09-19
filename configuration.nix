@@ -166,6 +166,7 @@
     keepassxc
     usbutils
     usb-modeswitch
+    nerd-fonts.symbols-only
   ];
   # Makes icons and themes available through the standard XDG paths
   xdg.icons.enable = true;
@@ -176,10 +177,6 @@
 
   fonts.packages = with pkgs; [
     font-awesome
-    font-awesome_4
-    font-awesome_5
-    font-awesome_6
-    font-awesome_7
     noto-fonts
     roboto
   ];
