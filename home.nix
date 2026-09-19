@@ -498,4 +498,4 @@ keybindings = {
   Install = {
     WantedBy = [ "graphical-session.target" ];
   };
-}
+};
