@@ -334,7 +334,6 @@ keybindings = {
         "tray" = {
           icon-size = 18;
           spacing = 10;
-        };
       };
     };
 
@@ -499,5 +498,4 @@ keybindings = {
   Install = {
     WantedBy = [ "graphical-session.target" ];
   };
-}
 }
