@@ -369,7 +369,7 @@ keybindings = {
     enable = true;
     settings = {
       main = {
-        font = "Roboto:size=18";
+        font = "monospace:size=18";
         lines = 15;
         auto-select = true;
       };
@@ -451,11 +451,11 @@ keybindings = {
     enable = true;
 
     gtk3.extraConfig = {
-      "gtk-font-name" = "Noto Sans 18";
+      "gtk-font-name" = "Noto Sans 14";
     };
 
     gtk4.extraConfig = {
-      "gtk-font-name" = "Noto Sans 18";
+      "gtk-font-name" = "Noto Sans 14";
     };
 
     theme = {
@@ -467,7 +467,7 @@ keybindings = {
     };
 
     font = {
-      name = "Noto Sans 10";
+      name = "Noto Sans 14";
     };
   };
 
