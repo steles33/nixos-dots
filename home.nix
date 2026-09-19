@@ -337,6 +337,7 @@ keybindings = {
       };
     };
 
+
     style = ''
       * {
         font-family: monospace, FontAwesome;
@@ -498,4 +499,5 @@ keybindings = {
   Install = {
     WantedBy = [ "graphical-session.target" ];
   };
-};
+ }
+}
