@@ -130,6 +130,7 @@
     htop
     tldr
     mc
+    usb-modeswitch
 
     # Wayland utilities
     wl-clipboard
@@ -142,6 +143,7 @@
     signal-desktop
     krusader
     vlc
+    vscode
 
     # KDE/Qt applications
     kdePackages.konsole
