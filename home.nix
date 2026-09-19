@@ -84,9 +84,8 @@
       # -----------------------------------------------------
 
       gaps = {
-        inner = 5;
-        outer = 4;
-        smartBorders = true;
+        inner = 3;
+        outer = 3;
         smartGaps = true;
       };
 
