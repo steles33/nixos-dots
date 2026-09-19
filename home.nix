@@ -500,4 +500,4 @@ keybindings = {
     WantedBy = [ "graphical-session.target" ];
   };
  };
-}
+};
