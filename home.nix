@@ -38,7 +38,7 @@
     swaybg
 
     # File manager / Tray utilities
-    
+    mc
     file
     tree
     networkmanagerapplet
@@ -84,8 +84,8 @@
       # -----------------------------------------------------
 
       gaps = {
-        inner = 3;
-        outer = 3;
+        inner = 5;
+        outer = 4;
         smartGaps = true;
       };
 
@@ -134,81 +134,52 @@
 
 
 keybindings = {
-  # -------------------------------------------------------
   # Terminal
-  # -------------------------------------------------------
   "Mod4+Return" = "exec konsole --profile nixos";
-  # -------------------------------------------------------
   # Kill
-  # -------------------------------------------------------
   "Mod4+Shift+q" = "kill";
-  # -------------------------------------------------------
   # Launcher
-  # -------------------------------------------------------
   "Mod4+d" = "exec fuzzel";
   "Mod4+Shift+d" = "xfce4-appfinder";
-  # -------------------------------------------------------
   # Apps
-  # -------------------------------------------------------
   "Mod4+i" = "exec firefox";
   "Mod4+c" = "exec thunderbird";
   "Mod4+n" = "exec signal-desktop";
   "Mod4+o" = "exec dolphin";
-  "Mod4+k" = "exec krusader";
+  "Mod4+k" = "exec krusader --left ~ --right ~";
   "Mod4+m" = "exec elisa";
-  # -------------------------------------------------------
   # Screenshots
-  # -------------------------------------------------------
-  # -> Using swappy
   "Mod4+p" = "exec grim -g \"$(slurp)\" - | swappy -f -";
-  # -------------------------------------------------------
   # Notifications
-  # -------------------------------------------------------
   "Mod4+Shift+n"= "exec swaync-client -t -sw";
-
-  "Mod4+f" = "fullscreen toggle";
-  "Mod4+Shift+space" = "floating toggle";
-  "Mod4+space" = "focus mode_toggle";
+  # Lock
+  "Mod4+l" = "exec swaylock -f -c 1e1e2e";
+  # Reload / Restart/ Exit
   "Mod4+Shift+c" = "reload";
   "Mod4+Shift+r" = "restart";
-  "Mod4+l" = "exec swaylock -f -c 1e1e2e";
   "Mod4+Shift+e" = "exec swaynag -t warning -m 'Exit Sway?' -B 'Yes' 'swaymsg exit'";
-
-
-  # -------------------------------------------------------
   # Focus
-  # -------------------------------------------------------
-
   "Mod4+Left" = "focus left";
   "Mod4+Down" = "focus down";
   "Mod4+Up" = "focus up";
   "Mod4+Right" = "focus right";
-
-  # "Mod4+r" =
-
-
-  # -------------------------------------------------------
   # Move windows
-  # -------------------------------------------------------
-
   "Mod4+Shift+Left" = "move left";
   "Mod4+Shift+Down" = "move down";
   "Mod4+Shift+Up" = "move up";
   "Mod4+Shift+Right" = "move right";
-
-
-  # -------------------------------------------------------
-  # Splitting
-  # -------------------------------------------------------
-
+  # Splitting + Layout
   "Mod4+h" = "splith";
   "Mod4+v" = "splitv";
-
-
-  # -------------------------------------------------------
+  "Mod4+s" = "layout stacking";
+  "Mod4+t" = "layout tabbed";
+  "Mod4+e" = "layout toggle split";
+  # Fullscreen + Floating
+  "Mod4+f" = "fullscreen toggle";
+  "Mod4+space" = "focus mode toggle";
+  "Mod4+Shift+space" = "floating toggle";
+  "Mod4+a" = "focus parent";
   # Workspaces
-  # -------------------------------------------------------
-
   "Mod4+1" = "workspace number 1";
   "Mod4+2" = "workspace number 2";
   "Mod4+3" = "workspace number 3";
@@ -218,12 +189,7 @@ keybindings = {
   "Mod4+7" = "workspace number 7";
   "Mod4+8" = "workspace number 8";
   "Mod4+9" = "workspace number 9";
-
-
-  # -------------------------------------------------------
   # Move windows to workspaces
-  # -------------------------------------------------------
-
   "Mod4+Shift+1" = "move container to workspace number 1";
   "Mod4+Shift+2" = "move container to workspace number 2";
   "Mod4+Shift+3" = "move container to workspace number 3";
@@ -233,7 +199,6 @@ keybindings = {
   "Mod4+Shift+7" = "move container to workspace number 7";
   "Mod4+Shift+8" = "move container to workspace number 8";
   "Mod4+Shift+9" = "move container to workspace number 9";
-
 };
 
       # -----------------------------------------------------
@@ -330,10 +295,6 @@ keybindings = {
             ""
           ];
         };
-
-        "tray" = {
-          icon-size = 18;
-          spacing = 10;
       };
     };
 
@@ -373,7 +334,7 @@ keybindings = {
     enable = true;
     settings = {
       main = {
-        font = "Roboto:size=18";
+        font = "monospace:size=18";
         lines = 15;
         auto-select = true;
       };
@@ -455,11 +416,11 @@ keybindings = {
     enable = true;
 
     gtk3.extraConfig = {
-      "gtk-font-name" = "Noto Sans 18";
+      "gtk-font-name" = "Noto Sans 14";
     };
 
     gtk4.extraConfig = {
-      "gtk-font-name" = "Noto Sans 18";
+      "gtk-font-name" = "Noto Sans 14";
     };
 
     theme = {
@@ -471,7 +432,7 @@ keybindings = {
     };
 
     font = {
-      name = "Noto Sans 10";
+      name = "Noto Sans 14";
     };
   };
 
@@ -498,4 +459,7 @@ keybindings = {
   Install = {
     WantedBy = [ "graphical-session.target" ];
   };
+};
+
+
 }
