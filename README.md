@@ -1,2 +1,2 @@
 # nixos-dots
-my NixOS config files
+my NixOS config files (outdated)
